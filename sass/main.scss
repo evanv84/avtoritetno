@@ -1,0 +1,1425 @@
+@import "susy";
+@import "breakpoint";
+
+//variables
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//partials
+@import "buttons";
+
+//fonts
+@import "fonts";
+
+//Susy settings
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  gutters: 0,
+  math: fluid,
+  output: float,
+);
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'pfdin-reg', 'Helvetica', sans-serif;
+}
+
+section:before {
+	clear: both;
+}
+
+section {
+	position: relative;
+}
+
+form button {
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+header#top {
+	width: 100%;
+	height: 800px;
+	position: relative;
+	background: url(../img/header-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	nav {
+		width: 100%;
+		height: 80px;
+		background-color: $blue;
+		position: fixed;
+		z-index: 201;
+		top: 0;
+		
+		.region {
+			@include span(4);
+			padding-top: 15px;
+			padding-left: 2rem;
+			
+			@include breakpoint($phone) {
+				display: none;
+			}
+			
+			select {
+				width: 150px;
+				height: 40px;
+				background-color: transparent;
+				color: $beige;
+				text-transform: uppercase;
+				padding-left: 0.2rem;
+				border: none;
+				border-bottom: 1px dotted $beige;
+				font-family: 'pfdin-thin', sans-serif;
+				background: url(../img/br_down.png) no-repeat right transparent;
+				appearance:none;
+			    -moz-appearance:none; /* Firefox */
+			    -webkit-appearance:none; /* Safari and Chrome */
+				cursor: pointer;
+				
+				option {
+					color: $blue;
+					background-color: $beige;
+				}
+			}
+		}
+
+		.logo {
+			@include span(4);
+			@include breakpoint($phone) {
+				@include span(4 first);
+			} 
+			
+			img {
+				margin: 10px auto;
+				width: 140px;
+				display: block;
+				
+				@include breakpoint($phone) {
+					margin-left: 1rem;
+					width: 120px;
+				} 
+			}
+		}
+
+		.phone {
+			@include span(4);
+			padding-top: 15px;
+			text-align: right;
+			padding-right: 2rem;
+			color: #FFF;
+			
+			@include breakpoint($phone) {
+				@include span(8 last);
+				padding-right: 1rem;
+				padding-top: 17px;
+			} 
+			span.mob-phone {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/phone-icon.png) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					display: none;
+				}
+			}
+			span.whatsapp {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/whatsapp-icon.png) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					display: none;
+				}
+			}
+			span.viber {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/viber-icon.png) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					display: none;
+				}
+			}
+
+			
+			a {
+				color: $beige;
+				text-decoration: none;
+				font-size: 1.2rem;
+				
+				@include breakpoint($phone) {
+					font-size: 1rem;
+				} 
+			}
+
+			p {
+				margin-top: 0;
+				font-size: 1rem;
+			}
+
+		}
+	}
+
+	.special {
+		position: absolute;
+		width: 150px;
+		height: 150px;
+		background-color: $beige;
+		-webkit-border-radius: 50%;
+		        border-radius: 50%;
+		border: 2px solid $white;
+		overflow: hidden;
+		top: 150px;
+		right: 100px;
+		text-align: center;
+		color: $blue;
+		z-index: 199;
+		
+		@include breakpoint($tablet) {
+			right: 50px;
+		}
+
+		@include breakpoint($phone) {
+			left: 30%;
+		}
+		
+		p {
+			padding-top: 1rem;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			font-size: 1.2rem;
+			
+			strong {
+				font-size: 1.7rem;
+			}
+		}
+	}
+
+	.ask-why {
+		position: absolute;
+		top: 120px;
+		right: 125px;
+		text-align: center;
+		border-bottom: 2px dotted $white;
+		cursor: pointer;
+		z-index: 200;
+		
+		@include breakpoint($tablet) {
+			right: 70px;	
+		}
+
+		@include breakpoint($phone) {
+			left: 20%;
+		}
+		
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+	}
+
+	.container {
+		padding-top: 14rem;
+		padding-left: 4rem;
+		
+		@include breakpoint($tablet) {
+			padding-top: 21rem;
+		}
+
+		@include breakpoint($phone) {
+			padding-left: 2rem;
+		}
+		
+		.mask {
+			position: absolute;
+			width: 50%;
+			height: 1000px;
+			top: -100px;
+			left: -100px;
+			background-color: transparentize($darkpurple, 0.5);
+			@include transform(rotate(20deg));
+			z-index: 9;
+			
+			@include breakpoint($tablet) {
+				left: -100px;
+				width: 100%;
+			}
+
+			@include breakpoint($phone) {
+				@include transform(rotate(0deg));
+				background-color: transparentize($darkpurple, 0.3);
+				left: 0;
+			}
+	}
+		
+		h1 {
+			color: $white;
+			font-size: 2.3rem;
+			text-transform: uppercase;
+			position: relative;
+			z-index: 10;
+			
+			@include breakpoint($phone) {
+				font-size: 1.7rem;
+			}
+		}
+
+		h3 {
+			color: $beige;
+			font-weight: normal;
+			position: relative;
+			z-index: 10;
+			font-size: 1.5rem;
+			
+			@include breakpoint($phone) {
+				font-size: 1.3rem;
+			}
+		} 
+	}
+}
+
+section#pluses {
+	background-color: #e6e8c5;
+	z-index: 20;
+	height: 720px;
+	
+	@include breakpoint($phone) {
+		height: 1500px;
+	}
+	
+	.sign {
+		width: 100px;
+		height: 100px;
+		top: 100px;
+		left: 30px;
+		position: absolute;
+		background: url(../img/pluses-sign.png) center center no-repeat;
+		@include background-size(contain);
+	}
+
+	.car-1 {
+		position: absolute;
+		z-index: 90;
+		width: 50%;
+		height: 300px;
+		top: 220px;
+		left: 15%;
+		background: url(../img/pluses-bg-car-1.jpg) center center no-repeat;
+		@include background-size(contain);
+		
+	}
+
+	.car-2 {
+		position: absolute;
+		z-index: 90;
+		width: 20%;
+		height: 300px;
+		top: 50px;
+		right: 5%;
+		background: url(../img/pluses-bg-car-2.jpg) center center no-repeat;
+		@include background-size(contain);
+		
+	}
+
+	.title {
+		padding-top: 100px;
+		padding-left: 17%;
+		h3 {
+			margin-top: 0;
+			font-size: 2rem;
+			text-transform: uppercase;
+			color: $blue;
+		}
+
+		@include breakpoint($tablet) {
+			padding-left: 2rem;
+			padding-top: 50px;
+			
+			h3 {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.block {
+		z-index: 100;
+		position: relative;
+		display: block;
+		width: 500px;
+		height: 670px;
+		top: -18rem;
+		right: -50%;
+		background: url(../img/pluses-block-bg.jpg) center center no-repeat;
+		@include background-size(cover);
+		
+		@include breakpoint($tablet) {
+			right: -40%;
+		}
+
+		@include breakpoint($phone) {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1300px;
+		}
+		
+		.inner-block {
+			display: inline-block;
+			width: 240px;
+			height: 150px;
+			padding: 1rem 1.5rem;
+			
+			@include breakpoint($phone) {
+				padding: 1rem 2rem;
+			}
+			
+			&:nth-child(1) {
+				position: relative;
+				//top: -17px;
+				padding-left: 2.5rem;
+				
+				@include breakpoint($phone) {
+					padding-left: 2rem;
+				}
+			}
+
+			&:nth-child(3) {
+				position: relative;
+				top: 0px;
+				padding-left: 2.5rem;
+				@include breakpoint($phone) {
+					padding-left: 2rem;
+					top: 0;
+				}
+			}
+
+			&:nth-child(4) {
+				position: relative;
+				top: -22px;
+				@include breakpoint($phone) {
+					top: 0;
+				}
+			}
+
+			&:nth-child(5) {
+				position: relative;
+				top: -66px;
+				padding-left: 2.5rem;
+				@include breakpoint($phone) {
+					padding-left: 2rem;
+					top: 0;
+				}
+			}
+			
+			p.title {
+				padding: 0;
+				color: $beige;
+				text-transform: uppercase;
+				font-size: 1.2rem;
+			}
+
+			p.content {
+				font-size: 1.1rem;
+				color: $white;
+				font-family: 'pfdin-thin', sans-serif;
+			}
+		}
+	}
+} 
+
+section#check {
+	padding: 80px 2rem 80px;
+	background-color: $white;
+	
+	.top-block {
+		@include container(1100px);
+		text-align: center;
+	}
+
+	.check-car {
+		@include container(1000px);
+		background: url(../img/check-bg.jpg) center center no-repeat;
+		@include background-size(cover);
+		height: 450px;
+		
+		@include breakpoint($phone) {
+			height: 200px;
+			@include background-size(contain);
+		}
+	}
+	
+	.bottom-block {
+		@include container(1100px);
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	.check-btn {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background-color: $blue;
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+		margin: 0 1rem;
+		
+		@include breakpoint($tablet) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.tooltip {
+	    position: relative;
+	    display: inline-block;
+	    cursor: pointer;
+	}
+
+	.tooltip .tooltiptext {
+	    visibility: hidden;
+	    width: 200px;
+	    background-color: $beige;
+	    color: $blue;
+	    text-align: left;
+	    border-radius: 6px;
+	    padding: 5px 10px;
+	    text-transform: none;
+	    font-family: 'pfdin-reg', sans-serif;
+	    
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+	    top: 120%;
+	    left: 25%;
+	    margin-left: -60px;
+	}
+
+	.tooltip:hover .tooltiptext {
+	    visibility: visible;
+	}
+}
+
+section#risks {
+	padding: 80px 0;
+	background: url(../img/minuses-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	.sign {
+		width: 100px;
+		height: 100px;
+		top: 180px;
+		left: 30px;
+		position: absolute;
+		background: url(../img/minuses-sign.png) center center no-repeat;
+		@include background-size(contain);
+	}
+
+	.container {
+		@include container(1000px);
+		color: $white;
+		
+		.left-side {
+			@include span(5 first);
+			
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			
+			h3 {
+				font-size: 2rem;
+				text-transform: uppercase;
+				padding-top: 4rem;
+				
+				@include breakpoint($phone) {
+					font-size: 1.5rem;
+				}
+				
+			}
+		}
+
+		.bracket {
+			@include span(2);
+			background: url(../img/curvy-bracket.png) center center no-repeat;
+			@include background-size(contain);
+			height: 330px;
+			
+			@include breakpoint($phone) {
+				display: none;
+			}
+		}
+
+		.right-side {
+			@include span(5 last);
+			
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			
+			p {
+				color: $beige;
+				font-family: 'pfdin-thin', sans-serif;
+				font-size: 1.2rem;
+			}
+		}
+
+		.button {
+			@include span(12);
+			text-align: center;
+			margin-top: 2rem;
+		}
+	}
+}
+
+section#process {
+	padding: 80px 0 120px;
+	background: url(../img/process-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	.sign {
+		width: 100px;
+		height: 100px;
+		top: 80px;
+		left: 30px;
+		position: absolute;
+		background: url(../img/process-sign.png) center center no-repeat;
+		@include background-size(contain);
+	}
+
+	.container {
+		@include container(1000px);
+
+		h3 {
+			font-size: 2rem;
+			text-transform: uppercase;
+			color: $blue;
+		}
+
+		.block {
+			@include span(4);
+			color: #FFF;
+			
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			
+			.bl-1 {
+				margin: 0 auto;
+				height: 250px;
+				width: 70%;
+				background: url(../img/proc-1.jpg) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+				
+				p.number {
+					color: $beige;
+					padding: 60px 30px 0;
+					margin-bottom: 0;
+					font-size: 1.5rem;
+				}
+
+				p.text {
+					color: #FFF;
+					padding: 0 30px;
+					margin-top: 0.5rem;
+					font-size: 1.5rem;
+				}
+
+				a {
+					display: inline-block;
+					width: 100%;
+					padding: 1rem;
+					margin-top: 30px;
+					background-color: $beige;
+					color: $blue;
+					text-decoration: none;
+					text-align: center;
+					
+					@include breakpoint($phone) {
+						margin-top: 50px;
+					}
+				}
+			}
+
+			.bl-2 {
+				margin: 0 auto;
+				height: 250px;
+				width: 70%;
+				background: url(../img/proc-2.jpg) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+				
+				p.number {
+					color: $beige;
+					padding: 60px 30px 0;
+					margin-bottom: 0;
+					font-size: 1.5rem;
+				}
+
+				p.text {
+					color: #FFF;
+					padding: 0 30px;
+					margin-top: 0.5rem;
+					font-size: 1.5rem;
+				}
+
+				a {
+					display: inline-block;
+					width: 100%;
+					padding: 1rem;
+					margin-top: 58px;
+					background-color: $beige;
+					color: $blue;
+					text-decoration: none;
+					text-align: center;
+				}
+			}
+
+			.bl-3 {
+				margin: 0 auto;
+				height: 250px;
+				width: 70%;
+				background: url(../img/proc-3.jpg) center center no-repeat;
+				@include background-size(cover);
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+				
+				p.number {
+					color: $beige;
+					padding: 60px 30px 0;
+					margin-bottom: 0;
+					font-size: 1.5rem;
+				}
+
+				p.text {
+					color: #FFF;
+					padding: 0 30px;
+					margin-top: 0.5rem;
+					font-size: 1.5rem;
+				}
+
+				a {
+					display: inline-block;
+					width: 100%;
+					padding: 1rem;
+					margin-top: 59px;
+					background-color: $beige;
+					color: $blue;
+					text-decoration: none;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+section#warranty {
+	padding: 80px 0 100px;
+	background-color: lighten($black, 90);
+	
+	.container {
+		@include container(1000px);
+		
+		h3 {
+			font-size: 2rem;
+			text-transform: uppercase;
+			color: $blue;
+		}
+		
+		.block-1 {
+			width: 100%;
+			
+			.image {
+				@include span(4 first);
+				height: 250px;
+				background: url(../img/warr-1.jpg) center center no-repeat;
+				@include background-size(cover);
+				border-top: 1px solid $blue;
+				border-left: 1px solid $blue;
+				@include breakpoint($phone) {
+					@include span(12);
+				}
+			}
+
+			.title {
+				@include span(8 last);
+				text-align: right;
+				@include breakpoint($phone) {
+					@include span(12);
+					text-align: left;
+				}
+				
+				h3 {
+					font-size: 1.5rem;
+					display: inline-block;
+					width: 100%;
+					background-color: $beige;
+					color: $blue;
+					padding:2rem;
+					text-transform: uppercase;
+				}
+
+				.button {
+					padding-right: 2rem;
+					text-align: right;
+				}
+			}
+		}
+
+		.block-2 {
+			width: 100%;
+			clear: both;
+			padding-top: 4rem;
+			
+			.image {
+				@include span(4 first);
+				height: 250px;
+				background: url(../img/warr-2.jpg) center center no-repeat;
+				@include background-size(cover);
+				border-top: 1px solid $blue;
+				border-left: 1px solid $blue;
+				@include breakpoint($phone) {
+					@include span(12);
+				}
+			}
+
+			.title {
+				@include span(8 last);
+				text-align: right;
+				@include breakpoint($phone) {
+					@include span(12);
+					text-align: left;
+				}
+				
+				h3 {
+					font-size: 1.5rem;
+					display: inline-block;
+					width: 100%;
+					background-color: $beige;
+					color: $blue;
+					padding:2rem;
+					text-transform: uppercase;
+				}
+
+				.button {
+					padding-right: 2rem;
+					text-align: right;
+				}
+			}
+		}
+
+		.block-3 {
+			width: 100%;
+			clear: both;
+			padding-top: 4rem;
+			
+			.image {
+				@include span(4 first);
+				height: 250px;
+				background: url(../img/warr-3.jpg) center center no-repeat;
+				@include background-size(cover);
+				border-top: 1px solid $blue;
+				border-left: 1px solid $blue;
+				@include breakpoint($phone) {
+					@include span(12);
+				}
+			}
+
+			.title {
+				@include span(8 last);
+				text-align: right;
+				@include breakpoint($phone) {
+					@include span(12);
+					text-align: left;
+				}
+				
+				h3 {
+					font-size: 1.5rem;
+					display: inline-block;
+					width: 100%;
+					background-color: $beige;
+					color: $blue;
+					padding:2rem;
+					text-transform: uppercase;
+				}
+
+				.button {
+					padding-right: 2rem;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+section#price {
+	padding: 80px 0 100px;
+	background: url(../img/price-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	.sign {
+		width: 100px;
+		height: 100px;
+		top: 80px;
+		left: 30px;
+		position: absolute;
+		background: url(../img/price-sign.png) center center no-repeat;
+		@include background-size(contain);
+	}
+
+	.container {
+		@include container(1000px);
+		
+		h3 {
+			color: #FFF;
+			font-size: 2rem;
+			margin-bottom: 2rem;
+			text-transform: uppercase;
+		}
+
+		.card-1 {
+			@include span(4);
+			
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+
+
+			
+			.image {
+				background: url(../img/price-1.jpg) center center no-repeat;
+				@include background-size(cover);
+				width: 80%;
+				height: 200px;
+
+				@include breakpoint($tablet) {
+					width: 100%;
+				}
+
+			}
+
+		}
+
+		.card-2 {
+			@include span(4);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			.image {
+				background: url(../img/price-2.jpg) center center no-repeat;
+				@include background-size(cover);
+				width: 80%;
+				height: 200px;
+
+				@include breakpoint($tablet) {
+					width: 100%;
+				}
+
+			}
+
+		}
+
+		.card-3 {
+			@include span(4);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			.image {
+				background: url(../img/price-3.jpg) center center no-repeat;
+				@include background-size(cover);
+				width: 80%;
+				height: 200px;
+
+				@include breakpoint($tablet) {
+					width: 100%;
+				}
+
+			}
+
+		}
+
+		.card-2 p.price {
+			padding-top: 2.52rem;
+		}
+
+		.card-3 p.price {
+			padding-top: 3.8rem;
+		}
+
+		.content {
+				width: 80%;
+				height: 513px;
+				background-color: #FFF;
+				padding: 1.5rem;
+				color: $blue;
+				
+				@include breakpoint($tablet) {
+					height: 100%;
+					margin-bottom: 2rem;
+					width: 100%;
+				}
+				
+				h4 {
+					font-size: 1.1rem;
+					text-transform: uppercase;
+				}
+
+				p.price {
+					font-size: 1.5rem;
+					font-weight: bold;
+					text-align:center;
+				}
+
+				.btn {
+					width: 100%;
+					text-align: center;
+				}
+			}
+	}
+}
+
+section#feedback {
+	padding: 80px 0;
+	
+	.container {
+		@include container(1000px);
+		
+		h3 {
+			font-size: 2rem;
+			color: $blue;
+			text-transform: uppercase;
+			margin-bottom: 2rem;
+		}
+
+		.feedback-carousel {
+			.item {
+				.left-side {
+					@include span(6 first);
+					@include breakpoint($phone) {
+						@include span(12);
+						margin-bottom: 2rem;
+					}
+				}
+
+				.right-side {
+					@include span(6 last);
+					padding-left: 2rem;
+					color: lighten($blue, 20);
+					@include breakpoint($phone) {
+						@include span(12);
+						padding-left: 0;
+					}
+					
+					p {
+						font-size: 1.1rem;
+						margin-bottom: 0.8rem;
+						margin-top: 0;
+						
+						strong {
+							font-size: 1.2rem;
+							text-transform: uppercase;
+							
+						}
+					}
+
+					p.price, p.price-2 {
+						font-size: 1.5rem;
+						font-weight: bold;
+						color: $blue;
+					}
+
+					a {
+						margin-top: 2rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.owl-theme .owl-controls {
+    margin-top: 0;
+    text-align: center;
+}
+.owl-theme .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 15px;
+    height: 15px;
+    margin: 15px 7px;
+    background: $blue;
+    display: block;
+    -webkit-backface-visibility: visible;
+    -webkit-transition: opacity 200ms ease;
+    -moz-transition: opacity 200ms ease;
+    -ms-transition: opacity 200ms ease;
+    -o-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    
+    &:hover {
+    	background: lighten($blue, 15) !important;
+    }
+}
+
+.owl-dots .active span {
+	background: lighten($blue, 30) !important;
+}
+
+section#calc {
+	padding: 80px 0 100px;
+	height: 700px;
+	background: url(../img/calc-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	@include breakpoint($phone) {
+		background: url(../img/calc-bg.jpg) left center no-repeat;
+	}
+	
+	.container {
+		@include container(700px);
+		
+		.left-side {
+			@include span(6 first);
+			padding-top: 2rem;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			
+			h3 {
+				font-size: 2rem;
+				color: $blue;
+				margin-bottom: 0;
+			}
+
+			p {
+				color: $blue;
+				font-size: 1.2rem;
+			}
+
+			select {
+				width: 80%;
+				height: 40px;
+				font-size: 1.2rem;
+				color: $blue;
+				text-transform: uppercase;
+				font-family: 'pfdin-reg', sans-serif;
+				padding-left: 0.5rem;
+				margin-bottom: 1rem;
+				border: 1px solid $blue;
+				background-color: transparent;
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+			}
+
+			input {
+				width: 80%;
+				height: 40px;
+				font-size: 1.2rem;
+				color: $blue;
+				text-transform: uppercase;
+				font-family: 'pfdin-reg', sans-serif;
+				padding-left: 0.5rem;
+				margin-bottom: 1rem;
+				border: 1px solid $blue;
+				background-color: transparent;
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+			}
+
+			.btn {
+				width: 80%;
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+section#callback {
+	padding: 100px 0;
+	background: url(../img/order-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	
+	.container {
+		@include container(1000px);
+		
+		h3 {
+			color: $white;
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.input {
+			@include span(4);
+			padding-right: 1rem;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			
+			input {
+				width: 100%;
+				height: 45px;
+				font-size: 1.2rem;
+				color: $blue;
+				font-family: 'pfdin-reg', sans-serif;
+				padding-left: 1rem;
+				margin-bottom: 1rem;
+				border: 1px solid $blue;
+				background-color: $white;
+			}
+
+			button {
+				width: 100%;
+			}
+		}
+	} 
+	
+}
+
+section#map {
+	.address {
+		position: absolute;
+		display: inline-block;
+		padding: 2rem;
+		background-color: $blue;
+		top: 50%;
+		left: 50%;
+		color: #FFF;
+		@include transform(translate(-50%, -50%));
+		
+		span {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			@include transform(rotate(45deg));
+			right: -8px;
+			top: 55px;
+			background-color: $blue;
+		}
+	}
+}
+
+footer {
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: darken($blue, 15);
+	color: #FFF;
+	
+	.container {
+		@include container(1000px);
+		
+		.left-side {
+			@include span(4 first);
+			padding-top: 80px;
+			padding-right: 4rem;
+			@include breakpoint($phone) {
+				@include span(12);
+				padding-right: 0;
+				
+				img {
+					display: block;
+					margin: 0 auto;
+				}
+			}
+			
+			p {
+				font-size: 0.8rem;
+			}
+			
+			p.policy {
+				padding-top: 0;
+				
+				a {
+					color: $beige;
+					font-size: 1rem;
+				}
+			}
+		}
+
+		.center {
+			@include span(4);
+			text-align:left;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
+			span.mob-phone {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/phone-icon.png) center center no-repeat;
+				@include background-size(cover);
+			}
+			span.whatsapp {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/whatsapp-icon.png) center center no-repeat;
+				@include background-size(cover);
+			}
+			span.viber {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				background: url(../img/viber-icon.png) center center no-repeat;
+				@include background-size(cover);
+			}
+			p {
+				padding-top: 110px;
+				font-size: 1.5rem;
+				margin-bottom: 0;
+				@include breakpoint($phone) {
+					padding-top: 30px;
+					padding-bottom: 30px;
+				}
+			}
+		}
+
+		.right-side {
+			@include span(4);
+			@include breakpoint($phone) {
+				@include span(12 first);
+			}
+		}
+	}
+}
+
+.remodal {
+	background: url(../img/modal-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	border-bottom: 4px solid $blue;
+	max-width: 800px;
+
+	.remodal-close {
+		top: -50px;
+		left: 810px;
+		opacity: 0.7;
+		@include transition(0.6s);
+
+		&:hover {
+			@include transition(0.6s);
+			@include transform(rotate(180deg) scale(1.2));
+			@include transform-origin(50% 50%);
+			opacity: 1;
+		}
+	}
+
+	.remodal-close:before {
+		display: none;
+	}
+
+	.remodal-close span:nth-child(1) {
+		position: absolute;
+		top: 16px;
+		left: -2px;
+		height: 2px;
+		width: 40px;
+		background-color: $white;
+		@include transform(rotate(45deg));
+	}
+
+	.remodal-close span:nth-child(2) {
+		position: absolute;
+		top: 16px;
+		left: -2px;
+		height: 2px;
+		width: 40px;
+		background-color: $white;
+		@include transform(rotate(135deg));
+	}
+}
+
+.text-modal {
+	max-width: 60%;
+	text-align: left;
+
+	h2 {
+		font-weight: normal;
+		font-size: 1.3rem;
+		margin-top: 0;
+		
+		strong {
+			color: $black;
+		}
+	}
+}
+
+.law {
+	max-width: 60%;
+	text-align: left;
+
+	p {
+		font-weight: normal;
+		font-size: 0.8rem;
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+}
+
+.form-modal {
+	width: 60%;
+	.input {
+		input {
+			width: 100%;
+			height: 40px;
+			margin-bottom: 1rem;
+			padding-left: 1rem;
+		}
+	} 
+
+	.btn {
+		width: 100%;
+		height: 60px;
+		background-color: $blue;
+	}
+}
+
+#policy {
+	padding: 100px 0;
+	
+	.container {
+		@include container(1000px);
+		p {
+			font-size: 1rem;
+		}
+	}
+}
+
+@include breakpoint($tablet) {
+	.sign {
+		display: none;
+	}
+
+	.container {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
